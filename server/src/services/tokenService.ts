@@ -5,8 +5,8 @@ const db = require('./../db/db');
 
 export const createJwtTokens = (payload: payloadT) => {
     if(process.env.ACCESS_KEY && process.env.REFRESH_KEY){
-        const accessToken = jwt.sign(payload, process.env.ACCESS_KEY, {expiresIn: '15s'});
-        const refreshToken = jwt.sign(payload, process.env.REFRESH_KEY, {expiresIn: '30s'});
+        const accessToken = jwt.sign(payload, process.env.ACCESS_KEY, {expiresIn: '15m'});
+        const refreshToken = jwt.sign(payload, process.env.REFRESH_KEY, {expiresIn: '30d'});
 
         return {
             accessToken,
